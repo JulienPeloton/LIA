@@ -64,6 +64,7 @@ def extract_all(mag, magerr, convert=True, zp=24):
         sum_values(norm_flux), time_reversal_asymmetry(norm_flux), vonNeumannRatio(norm_flux)))
 
     stats[np.isinf(stats)] = 0
+    stats[np.isnan(stats)] = 0
     return stats
 
 
