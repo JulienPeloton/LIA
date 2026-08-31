@@ -242,7 +242,7 @@ def kurtosis(mag):
     """
     mean = np.median(mag)
     std = np.std(mag)
-    n = np.float(len(mag))
+    n = float(len(mag))
     
     try:
         kurtosis = (n*(n+1.)/((n-1.)*(n-2.)*(n-3.))*sum(((mag - mean)/std)**4)) - \
@@ -261,7 +261,7 @@ def skewness(mag):
     
     mean = np.median(mag)
     std = np.std(mag)
-    n = np.float(len(mag))
+    n = float(len(mag))
     try:
         skewness = (1./n)*sum((mag - mean)**3/std**3)
     except ZeroDivisionError:
@@ -277,7 +277,7 @@ def vonNeumannRatio(mag):
         :rtype: float
     """
     
-    n = np.float(len(mag))
+    n = float(len(mag))
     delta = sum((mag[1:] - mag[:-1])**2 / (n-1.))
     sample_variance = np.std(mag)**2
     try:
@@ -297,7 +297,7 @@ def stetsonJ(mag, magerr):
         :rtype: float
     """
     
-    n = np.float(len(mag))
+    n = float(len(mag))
     mean = np.median(mag)
     delta_list=[]
     
@@ -320,7 +320,7 @@ def stetsonK(mag, magerr):
         :rtype: float
     """  
     
-    n = np.float(len(mag))
+    n = float(len(mag))
     mean = np.median(mag)
     try:
         delta = np.sqrt((n/(n-1.)))*((mag - mean)/magerr)
@@ -357,7 +357,7 @@ def median_buffer_range(mag):
         :rtype: float
     """
     
-    n = np.float(len(mag))
+    n = float(len(mag))
     amp = amplitude(mag)
     #mean = meanMag(mag, magerr)
     mean = np.median(mag)
@@ -374,7 +374,7 @@ def median_buffer_range2(mag):
         :rtype: float
     """
     
-    n = np.float(len(mag))
+    n = float(len(mag))
     amp = amplitude(mag)
     #mean = meanMag(mag, magerr)
     mean = np.median(mag)
@@ -544,7 +544,7 @@ def integrate(mag):
     """Integrate magnitude using the trapezoidal rule.
         See: http://en.wikipedia.org/wiki/Trapezoidal_rule
     """
-    integral = np.trapz(mag)
+    integral = np.trapezoid(mag)
     return integral
 
 
